@@ -1,0 +1,1 @@
+protocol SettingsView: BaseView { }

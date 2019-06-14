@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginController" customModule="Alarma" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LoginViewController" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gVA-Lj-Cqs">
+                    <rect key="frame" x="110.5" y="295" width="154" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dtl-Oz-5sl">
+                    <rect key="frame" x="110" y="414" width="38" height="30"/>
+                    <state key="normal" title="Login">
+                        <color key="titleColor" red="0.40181374549999999" green="0.71223688129999996" blue="0.14901575449999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="loginButtonTapped:" destination="-1" eventType="touchUpInside" id="qwX-Jf-9Xy"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U6g-zS-iqy">
+                    <rect key="frame" x="216" y="414" width="48" height="30"/>
+                    <state key="normal" title="Signup">
+                        <color key="titleColor" red="0.40181374549999999" green="0.71223688129999996" blue="0.14901575449999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="signUpButtonTapped:" destination="-1" eventType="touchUpInside" id="iLY-er-rid"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Dtl-Oz-5sl" secondAttribute="bottom" constant="223" id="I80-xA-rbf"/>
+                <constraint firstItem="U6g-zS-iqy" firstAttribute="top" secondItem="gVA-Lj-Cqs" secondAttribute="bottom" constant="98" id="JBB-d7-beT"/>
+                <constraint firstItem="gVA-Lj-Cqs" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="275" id="KC3-EE-iHB"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="U6g-zS-iqy" secondAttribute="trailing" constant="111" id="Nx6-Ph-Vje"/>
+                <constraint firstItem="gVA-Lj-Cqs" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="PGE-tA-ayP"/>
+                <constraint firstItem="Dtl-Oz-5sl" firstAttribute="top" secondItem="gVA-Lj-Cqs" secondAttribute="bottom" constant="98" id="S6k-83-jc0"/>
+                <constraint firstItem="Dtl-Oz-5sl" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="110" id="TbR-JG-vzs"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="U6g-zS-iqy" secondAttribute="bottom" constant="223" id="vqA-GK-6pU"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+        </view>
+    </objects>
+</document>

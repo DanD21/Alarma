@@ -1,0 +1,42 @@
+PODS:
+  - lottie-ios (2.5.2)
+  - Realm (3.13.1):
+    - Realm/Headers (= 3.13.1)
+  - Realm/Headers (3.13.1)
+  - RealmSwift (3.13.1):
+    - Realm (= 3.13.1)
+  - Reusable (4.0.5):
+    - Reusable/Storyboard (= 4.0.5)
+    - Reusable/View (= 4.0.5)
+  - Reusable/Storyboard (4.0.5)
+  - Reusable/View (4.0.5)
+  - SwiftCron (0.5.0)
+  - SwiftLint (0.31.0)
+
+DEPENDENCIES:
+  - lottie-ios
+  - RealmSwift
+  - Reusable
+  - SwiftCron
+  - SwiftLint
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - lottie-ios
+    - Realm
+    - RealmSwift
+    - Reusable
+    - SwiftCron
+    - SwiftLint
+
+SPEC CHECKSUMS:
+  lottie-ios: 3fef45d3fabe63e3c7c2eb603dd64ddfffc73062
+  Realm: 50071da38fe079e0735e47c9f2eae738c68c5996
+  RealmSwift: 8a1e6a02b7a08cd17a31e3115143fb69fe5f3fb9
+  Reusable: 188be1a54ac0691bc66e5bb24ec6eb91971b315b
+  SwiftCron: 15bbc7840c56f8e026df2b786dded7c6776289c9
+  SwiftLint: 7a0227733d786395817373b2d0ca799fd0093ff3
+
+PODFILE CHECKSUM: 4e45e52d2e1bb641a22ece55104381cfa4005f4d
+
+COCOAPODS: 1.6.0
