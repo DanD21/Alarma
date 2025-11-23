@@ -19,26 +19,42 @@ struct AlarmCreationView: View {
     @State private var loopSound = false
     @State private var selectedDays: Set<Weekday> = []
     @State private var errorMessage: String?
+    @State private var isSaving = false
+    @State private var shakeAmount: CGFloat = 0
 
     var body: some View {
         NavigationStack {
             Form {
-                Section("Time") {
+                Section {
                     DatePicker(
                         "Alarm Time",
                         selection: $selectedTime,
                         displayedComponents: [.hourAndMinute]
                     )
                     .datePickerStyle(.wheel)
+                    .labelsHidden()
+                } header: {
+                    Label("Time", systemImage: "clock")
                 }
 
-                Section("Repeat") {
+                Section {
                     if selectedDays.isEmpty {
-                        Text("Never")
-                            .foregroundStyle(.secondary)
+                        HStack {
+                            Image(systemName: "repeat")
+                                .foregroundStyle(.secondary)
+                            Text("Never")
+                                .foregroundStyle(.secondary)
+                        }
+                        .transition(.opacity)
                     } else {
-                        Text(repeatDisplayString)
-                            .foregroundStyle(.secondary)
+                        HStack {
+                            Image(systemName: "repeat")
+                                .foregroundStyle(AppTheme.primaryColor)
+                            Text(repeatDisplayString)
+                                .foregroundStyle(AppTheme.primaryColor)
+                                .fontWeight(.medium)
+                        }
+                        .transition(.opacity)
                     }
 
                     LazyVGrid(columns: [
@@ -52,21 +68,36 @@ struct AlarmCreationView: View {
                                 day: day,
                                 isSelected: selectedDays.contains(day)
                             ) {
-                                toggleDay(day)
+                                withAnimation(AppTheme.springAnimation) {
+                                    toggleDay(day)
+                                }
+                                HapticService.selection()
                             }
                         }
                     }
-                    .padding(.vertical, 8)
+                    .padding(.vertical, AppTheme.spacingS)
+                } header: {
+                    Label("Repeat", systemImage: "calendar")
                 }
 
-                Section("Sound") {
+                Section {
                     Picker("Sound", selection: $selectedSound) {
                         ForEach(AlarmSound.allCases) { sound in
                             Text(sound.displayName).tag(sound)
                         }
                     }
+                    .onChange(of: selectedSound) { _, _ in
+                        HapticService.selection()
+                    }
 
-                    Toggle("Loop Sound", isOn: $loopSound)
+                    Toggle(isOn: $loopSound) {
+                        Label("Loop Sound", systemImage: "repeat.1")
+                    }
+                    .onChange(of: loopSound) { _, _ in
+                        HapticService.selection()
+                    }
+                } header: {
+                    Label("Sound", systemImage: "speaker.wave.2")
                 }
             }
             .navigationTitle("New Alarm")
@@ -74,12 +105,22 @@ struct AlarmCreationView: View {
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
                     Button("Cancel") {
+                        HapticService.lightImpact()
                         dismiss()
                     }
                 }
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Save") {
-                        saveAlarm()
+                        Task {
+                            await saveAlarm()
+                        }
+                    }
+                    .disabled(isSaving)
+                    .overlay {
+                        if isSaving {
+                            ProgressView()
+                                .scaleEffect(0.8)
+                        }
                     }
                 }
             }
@@ -92,6 +133,7 @@ struct AlarmCreationView: View {
                     Text(errorMessage)
                 }
             }
+            .shake(animatableData: shakeAmount)
         }
     }
 
@@ -103,7 +145,9 @@ struct AlarmCreationView: View {
         }
     }
 
-    private func saveAlarm() {
+    private func saveAlarm() async {
+        isSaving = true
+
         let alarm = Alarm(
             time: selectedTime,
             isEnabled: true,
@@ -117,9 +161,29 @@ struct AlarmCreationView: View {
 
         do {
             try modelContext.save()
-            dismiss()
+
+            // Schedule notification
+            do {
+                try await NotificationService.shared.scheduleNotification(for: alarm)
+                HapticService.success()
+
+                withAnimation(AppTheme.easeAnimation) {
+                    dismiss()
+                }
+            } catch {
+                // Alarm saved but notification failed
+                HapticService.warning()
+                errorMessage = "Alarm created but notification scheduling failed. Please check notification permissions."
+                isSaving = false
+            }
         } catch {
+            HapticService.error()
             errorMessage = "Failed to create alarm: \(error.localizedDescription)"
+            isSaving = false
+
+            withAnimation(.default) {
+                shakeAmount += 1
+            }
         }
     }
 
@@ -158,13 +222,22 @@ struct DayButton: View {
                 .fontWeight(isSelected ? .semibold : .regular)
                 .foregroundStyle(isSelected ? .white : .primary)
                 .frame(maxWidth: .infinity)
-                .padding(.vertical, 8)
+                .padding(.vertical, AppTheme.spacingS)
                 .background(
-                    RoundedRectangle(cornerRadius: 8)
-                        .fill(isSelected ? Color.accentColor : Color(.systemGray5))
+                    RoundedRectangle(cornerRadius: AppTheme.cornerRadiusS)
+                        .fill(isSelected ? AppTheme.primaryColor.gradient : Color(.systemGray5))
+                )
+                .overlay(
+                    RoundedRectangle(cornerRadius: AppTheme.cornerRadiusS)
+                        .stroke(
+                            isSelected ? AppTheme.primaryColor : .clear,
+                            lineWidth: 2
+                        )
                 )
         }
         .buttonStyle(.plain)
+        .scaleEffect(isSelected ? 1.05 : 1.0)
+        .animation(AppTheme.springAnimation, value: isSelected)
     }
 }
 
