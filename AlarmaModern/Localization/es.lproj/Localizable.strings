@@ -1,0 +1,142 @@
+/*
+  Localizable.strings (Spanish)
+  AlarmaModern
+*/
+
+// MARK: - Common
+"app.name" = "Alarma";
+"common.save" = "Guardar";
+"common.cancel" = "Cancelar";
+"common.delete" = "Eliminar";
+"common.edit" = "Editar";
+"common.done" = "Listo";
+"common.ok" = "OK";
+"common.error" = "Error";
+"common.retry" = "Reintentar";
+"common.loading" = "Cargando...";
+
+// MARK: - Alarms
+"alarms.title" = "Alarmas";
+"alarms.new" = "Nueva Alarma";
+"alarms.add" = "Agregar Alarma";
+"alarms.none" = "Sin Alarmas";
+"alarms.none.description" = "Agrega tu primera alarma a \"%@\"";
+"alarms.time" = "Hora de Alarma";
+"alarms.enabled" = "Activada";
+"alarms.disabled" = "Desactivada";
+
+// MARK: - Groups
+"groups.title" = "Grupos de Alarmas";
+"groups.new" = "Nuevo Grupo de Alarmas";
+"groups.add" = "Agregar Grupo";
+"groups.none" = "Sin Grupos de Alarmas";
+"groups.none.description" = "Crea tu primer grupo de alarmas para comenzar";
+"groups.name" = "Nombre del Grupo";
+"groups.alarms.count" = "%d alarma(s)";
+"groups.select" = "Selecciona un Grupo";
+"groups.select.description" = "Elige un grupo de alarmas de la barra lateral";
+
+// MARK: - Time & Repeat
+"time.label" = "Hora";
+"repeat.label" = "Repetir";
+"repeat.never" = "Nunca";
+"repeat.everyday" = "Todos los días";
+"repeat.weekdays" = "Entre semana";
+"repeat.weekends" = "Fines de semana";
+
+// MARK: - Weekdays
+"weekday.sunday" = "Domingo";
+"weekday.monday" = "Lunes";
+"weekday.tuesday" = "Martes";
+"weekday.wednesday" = "Miércoles";
+"weekday.thursday" = "Jueves";
+"weekday.friday" = "Viernes";
+"weekday.saturday" = "Sábado";
+"weekday.short.sun" = "Dom";
+"weekday.short.mon" = "Lun";
+"weekday.short.tue" = "Mar";
+"weekday.short.wed" = "Mié";
+"weekday.short.thu" = "Jue";
+"weekday.short.fri" = "Vie";
+"weekday.short.sat" = "Sáb";
+
+// MARK: - Sounds
+"sound.label" = "Sonido";
+"sound.loop" = "Repetir Sonido";
+"sound.default" = "Predeterminado";
+"sound.chime" = "Campanilla";
+"sound.bells" = "Campanas";
+"sound.guitar" = "Guitarra";
+"sound.piano" = "Piano";
+"sound.rock" = "Rock";
+"sound.silent" = "Silencioso";
+
+// MARK: - Onboarding
+"onboarding.welcome.title" = "Bienvenido a Alarma";
+"onboarding.welcome.description" = "Organiza tus alarmas en grupos para una mejor gestión";
+"onboarding.groups.title" = "Grupos Inteligentes";
+"onboarding.groups.description" = "Crea grupos de alarmas para trabajo, fines de semana o cualquier rutina";
+"onboarding.schedules.title" = "Horarios Personalizados";
+"onboarding.schedules.description" = "Configura diferentes sonidos y patrones de repetición para cada alarma";
+"onboarding.getstarted" = "Comenzar";
+"onboarding.next" = "Siguiente";
+"onboarding.skip" = "Omitir";
+
+// MARK: - Notifications
+"notifications.enable.title" = "Activar Notificaciones";
+"notifications.enable.description" = "Alarma necesita permisos de notificación para despertarte a tiempo";
+"notifications.enable.button" = "Activar Notificaciones";
+"notifications.notnow" = "Ahora No";
+"notifications.denied.title" = "Notificaciones Denegadas";
+"notifications.denied.message" = "Por favor activa las notificaciones en Ajustes para recibir alertas de alarma";
+"notifications.opensettings" = "Abrir Ajustes";
+
+// MARK: - Settings
+"settings.title" = "Ajustes";
+"settings.alarm.title" = "Configuración de Alarmas";
+"settings.sound.default" = "Sonido Predeterminado";
+"settings.snooze.duration" = "Duración de Posponer: %d min";
+"settings.about.title" = "Acerca de";
+"settings.version" = "Versión";
+"settings.build" = "Compilación";
+"settings.reset.onboarding" = "Restablecer Tutorial";
+"settings.privacy" = "Política de Privacidad";
+"settings.terms" = "Términos de Servicio";
+
+// MARK: - Errors
+"error.alarm.create" = "Error al crear alarma";
+"error.alarm.update" = "Error al actualizar alarma";
+"error.alarm.delete" = "Error al eliminar alarma";
+"error.group.create" = "Error al crear grupo";
+"error.group.update" = "Error al actualizar grupo";
+"error.group.delete" = "Error al eliminar grupo";
+"error.notification.schedule" = "Alarma creada pero falló la programación de notificación. Por favor verifica los permisos de notificación.";
+"error.unknown" = "Algo salió mal";
+"error.name.empty" = "El nombre no puede estar vacío";
+
+// MARK: - Success Messages
+"success.alarm.created" = "Alarma creada";
+"success.alarm.updated" = "Alarma actualizada";
+"success.alarm.deleted" = "Alarma eliminada";
+"success.group.created" = "Grupo creado";
+
+// MARK: - Accessibility
+"accessibility.alarm.toggle" = "Alternar alarma";
+"accessibility.alarm.label" = "Alarma a las %@";
+"accessibility.alarm.enabled" = "Activada";
+"accessibility.alarm.disabled" = "Desactivada";
+"accessibility.group.toggle" = "Alternar grupo";
+
+// MARK: - Siri & Shortcuts
+"siri.next.alarm" = "Tu próxima alarma es a las %@ en %@";
+"siri.no.alarms" = "No tienes alarmas próximas";
+"siri.alarm.created" = "Alarma creada para las %@ en %@";
+"siri.group.enabled" = "Activadas todas las alarmas en %@";
+"siri.group.disabled" = "Desactivadas todas las alarmas en %@";
+
+// MARK: - Widget
+"widget.next.alarm" = "Próxima Alarma";
+"widget.no.alarms" = "Sin alarmas próximas";
+
+// MARK: - Live Activity
+"liveactivity.next.alarm" = "Próxima Alarma";
